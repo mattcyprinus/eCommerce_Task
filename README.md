@@ -1,0 +1,1 @@
+This project is for ICT372 - MOBILE COMPUTING.
