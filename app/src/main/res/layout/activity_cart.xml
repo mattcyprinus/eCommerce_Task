@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F8F8">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+
+        <!-- ONE MAIN BOX -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_box"
+            android:padding="24dp"
+            android:layout_marginTop="10dp">
+
+
+            <!-- Header INSIDE box -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="☰"
+                    android:textSize="32sp"
+                    android:textColor="#004E64"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="MyCart"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="#004E64"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚙"
+                    android:textSize="28sp"
+                    android:textColor="#004E64"/>
+
+            </LinearLayout>
+
+            <!-- Cart Items inside same box -->
+            <include layout="@layout/cart_item"/>
+            <include layout="@layout/cart_item"/>
+            <include layout="@layout/cart_item"/>
+
+            <!-- Member Benefit -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="28dp"
+                android:orientation="vertical"
+                android:padding="22dp"
+                android:background="#7A4A00">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MEMBER BENEFIT"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save more with premium membership"
+                    android:textSize="24sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="26dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exclusive Offers Available"
+                    android:textColor="#F5D27A"
+                    android:textSize="16sp"
+                    android:layout_marginTop="12dp"/>
+
+            </LinearLayout>
+
+            <!-- Totals -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Subtotal          $835.00"
+                android:textSize="24sp"
+                android:layout_marginTop="32dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shipping           FREE"
+                android:textSize="24sp"
+                android:layout_marginTop="18dp"/>
+
+
+            <!-- Divider under shipping -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D5D5D5"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="22dp"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Cost      $835.00"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#004E64"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:text="Proceed to Checkout"
+                android:textSize="20sp"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/login_button"
+                android:layout_marginTop="30dp"/>
+
+
+            <!-- Divider before nav -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#D5D5D5"
+                android:layout_marginTop="28dp"/>
+
+
+
+            <!-- Bottom Nav INSIDE box -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="18dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="18dp">
+
+                    <TextView
+                        android:text="⌂"
+                        android:textSize="24sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:text="HOME"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="18dp">
+
+                    <TextView
+                        android:text="⌕"
+                        android:textSize="24sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:text="SEARCH"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="18dp">
+
+                    <TextView
+                        android:text="🛒"
+                        android:textSize="24sp"
+                        android:textColor="#004E64"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:text="CART"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#004E64"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_margin="18dp">
+
+                    <TextView
+                        android:text="👤"
+                        android:textSize="24sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:text="PROFILE"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
