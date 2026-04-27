@@ -143,7 +143,7 @@
         android:src="@drawable/ic_cartplus"
         app:tint="#FFFFFF"
         app:fabSize="normal"
-        app:backgroundTint="#005B70"
+        app:backgroundTint="@color/maincolor"
         app:shapeAppearanceOverlay="@style/FabRounded"
         app:elevation="6dp"
         app:layout_constraintEnd_toEndOf="parent"

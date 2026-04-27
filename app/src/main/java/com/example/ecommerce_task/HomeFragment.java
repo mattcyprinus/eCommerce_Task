@@ -1,12 +1,27 @@
 package com.example.ecommerce_task;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,5 +75,44 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        RecyclerView recyclerView = view.findViewById(R.id.rv_products);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        recyclerView.setNestedScrollingEnabled(false);
+
+        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTczYjQ4ZDcyNzU0N2ZlYWQ5YjdjYyIsImlhdCI6MTc3Njc2MTcwMywiZXhwIjoxNzc2ODQ4MTAzfQ.HBWIIIOuN842E_-9bky6YNnp2WrzAxfGmHB4FKuwcJs";
+
+        RetrofitClient.getApi()
+                .getProducts("Bearer " + token)
+                .enqueue(new Callback<List<Product>>() {
+                    @Override
+                    public void onResponse(@NonNull Call<List<Product>> call,
+                                           @NonNull Response<List<Product>> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            List<Product> all = response.body();
+                            List<Product> first6 = all.subList(0, Math.min(6, all.size()));
+                            ProductAdapter adapter = new ProductAdapter(new ArrayList<>(first6));
+
+                            adapter.setOnProductClickListener(product -> {
+                                String productJson = new Gson().toJson(product);
+                                Intent intent = new Intent(getContext(), ProductDetail.class);
+                                intent.putExtra(ProductDetail.EXTRA_PRODUCT, productJson);
+                                startActivity(intent);
+                            });
+
+                            recyclerView.setAdapter(adapter);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<List<Product>> call, @NonNull Throwable t) {
+                        Toast.makeText(getContext(), "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
     }
 }
