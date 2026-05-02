@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.loginandcheckout"
+    namespace = "com.example.ecommerce_task"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.loginandcheckout"
+        applicationId = "com.example.ecommerce_task"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -36,7 +36,6 @@ android {
 }
 
 dependencies {
-    implementation(libs.activity.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
